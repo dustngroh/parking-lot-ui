@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Parking Lot UI
 
-## Getting Started
+Welcome to the **Parking Lot UI**! This project is the user interface for the Parking Lot Management System, built using **Next.js**. It connects seamlessly with the backend ([parking-lot-api](https://github.com/dustngroh/parking-lot-api)) to provide a smooth and interactive experience for managing parking lots, reservations, and user accounts.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **User-Friendly Interface**: A modern, responsive design for easy navigation and interaction.
+- **Parking Lot Management**: View, add, and manage parking lots in real time.
+- **Reservation Handling**: Create, update, and track parking reservations.
+- **Integration with Backend**: Communicates with the `parking-lot-api` for data synchronization and updates.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend Framework**: [Next.js](https://nextjs.org/) - A React framework for building fast and scalable applications.
+- **Styling**: Tailwind CSS.
+- **Backend Integration**: REST API connection with the [parking-lot-api](https://github.com/dustngroh/parking-lot-api).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## About
 
-## Learn More
+This project is designed to provide a comprehensive system for parking lot management. Whether you're an admin managing spaces or a user reserving parking, this application aims to deliver an efficient and intuitive experience.
 
-To learn more about Next.js, take a look at the following resources:
+### 🚧 Work in Progress
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is a work in progress, and new features and improvements are being actively developed.

@@ -2,14 +2,15 @@
 
 import { useEffect, useState } from "react";
 import {ParkingLot} from "@/app/lib/definitions";
+import { fetchWithAuth } from "@/app/lib/auth";
 
 const ParkingLotsComponent = () => {
     const [parkingLots, setParkingLots] = useState<ParkingLot[]>([]);
 
     useEffect(() => {
         const fetchParkingLots = async () => {
-            const response = await fetch("/api/parkinglots");
-            const data: ParkingLot[] = await response.json();
+            //const response = await fetchWithAuth("/api/parkinglots");
+            const data: ParkingLot[] = await fetchWithAuth("/api/parkinglots");
             setParkingLots(data);
         };
 

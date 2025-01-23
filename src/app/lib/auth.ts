@@ -1,47 +1,35 @@
-// Log in and store the token in a cookie
+// Log in
 export async function login(username: string, password: string): Promise<void> {
     const response = await fetch('/api/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
+        credentials: 'include',
     });
 
     if (!response.ok) {
         throw new Error('Invalid credentials');
     }
-
-    const { token } = await response.json();
-
-    // Store the token in a cookie
-    setCookie('jwtToken', token);
 }
 
-// Log out and clear the token cookie
-export function logout(): void {
-    deleteCookie('jwtToken');
-}
+// Log out by calling backend's logout endpoint to clear HttpOnly cookie
+export async function logout(): Promise<void> {
+    const response = await fetch('/api/users/logout', {
+        method: 'POST',
+        credentials: 'include',
+    });
 
-// Retrieve the token from cookies
-export function getToken(): string | null {
-    return getCookie('jwtToken');
+    if (!response.ok) {
+        throw new Error('Failed to log out');
+    }
 }
-
 
 // Fetch data from an endpoint with the Authorization header
 export async function fetchWithAuth(url: string, options: RequestInit = {}) {
-    const token = getToken();
-
-    if (!token) {
-        throw new Error('Unauthorized: No token found');
-    }
-
-    const headers = {
-        ...options.headers,
-        Authorization: `Bearer ${token}`, // Include the token in the Authorization header
-        'Content-Type': 'application/json',
-    };
-
-    const response = await fetch(url, { ...options, headers });
+    const response = await fetch(url, {
+        ...options,
+        credentials: 'include',
+    });
 
     if (!response.ok) {
         const error = await response.json().catch(() => ({ message: 'Unknown error' }));
@@ -49,28 +37,4 @@ export async function fetchWithAuth(url: string, options: RequestInit = {}) {
     }
 
     return response.json(); // Parse JSON response
-}
-
-// Helper function to set a cookie
-function setCookie(name: string, value: string, days: number = 1) {
-    const expires = new Date();
-    expires.setDate(expires.getDate() + days);
-    document.cookie = `${name}=${value}; path=/; expires=${expires.toUTCString()}; Secure; SameSite=Strict`;
-}
-
-// Helper function to get a cookie value
-function getCookie(name: string): string | null {
-    const cookies = document.cookie.split('; ');
-    for (const cookie of cookies) {
-        const [key, value] = cookie.split('=');
-        if (key === name) {
-            return value;
-        }
-    }
-    return null;
-}
-
-// Helper function to delete a cookie
-function deleteCookie(name: string) {
-    document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Strict`;
 }

@@ -1,3 +1,23 @@
+// Register a new user
+export async function register(
+    username: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    plateNumber: string
+): Promise<void> {
+    const response = await fetch('/api/users/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password, firstName, lastName, plateNumber }),
+    });
+
+    if (!response.ok) {
+        const error = await response.json().catch(() => ({ message: 'Unknown error' }));
+        throw new Error(error.message || 'Failed to create account.');
+    }
+}
+
 // Log in
 export async function login(username: string, password: string): Promise<void> {
     const response = await fetch('/api/users/login', {

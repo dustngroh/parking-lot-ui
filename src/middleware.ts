@@ -5,7 +5,7 @@ export function middleware(req: NextRequest) {
     console.log('Middleware triggered for:', req.nextUrl.pathname);
 
     // Allow access to login and registration endpoints
-    if (req.nextUrl.pathname.startsWith('/api/users/login') || req.nextUrl.pathname.startsWith('/login')) {
+    if (req.nextUrl.pathname.startsWith('/api/users/login') || req.nextUrl.pathname.startsWith('/login') || req.nextUrl.pathname.startsWith('/api/users/register')) {
         console.log('Login route. Allowing access.');
         return NextResponse.next();
     }

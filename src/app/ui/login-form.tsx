@@ -33,7 +33,7 @@ export default function LoginForm() {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    className="border rounded px-2 py-1"
+                    className="border rounded px-2 py-1 text-black"
                 />
             </label>
             <label>
@@ -43,7 +43,7 @@ export default function LoginForm() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="border rounded px-2 py-1"
+                    className="border rounded px-2 py-1 text-black"
                 />
             </label>
             {error && <p className="text-red-500">{error}</p>}

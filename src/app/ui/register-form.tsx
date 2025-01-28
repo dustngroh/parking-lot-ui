@@ -39,65 +39,65 @@ export default function RegisterForm() {
     return (
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="username" className="block text-sm font-medium">
                         Username
                     </label>
                     <input
                         type="text"
                         id="username"
                         name="username"
-                        className="block w-full rounded-md border-gray-300 shadow-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
                         required
                         minLength={3}
                         maxLength={20}
                     />
                 </div>
                 <div>
-                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="password" className="block text-sm font-medium">
                         Password
                     </label>
                     <input
                         type="password"
                         id="password"
                         name="password"
-                        className="block w-full rounded-md border-gray-300 shadow-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
                         required
                         minLength={8}
                     />
                 </div>
                 <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="firstName" className="block text-sm font-medium">
                         First Name
                     </label>
                     <input
                         type="text"
                         id="firstName"
                         name="firstName"
-                        className="block w-full rounded-md border-gray-300 shadow-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
                         required
                     />
                 </div>
                 <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="lastName" className="block text-sm font-medium">
                         Last Name
                     </label>
                     <input
                         type="text"
                         id="lastName"
                         name="lastName"
-                        className="block w-full rounded-md border-gray-300 shadow-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
                         required
                     />
                 </div>
                 <div>
-                    <label htmlFor="plateNumber" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="plateNumber" className="block text-sm font-medium">
                         Plate Number
                     </label>
                     <input
                         type="text"
                         id="plateNumber"
                         name="plateNumber"
-                        className="block w-full rounded-md border-gray-300 shadow-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
                         required
                     />
                 </div>

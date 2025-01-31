@@ -14,7 +14,7 @@ export default function LoginForm() {
         e.preventDefault();
         try {
             await login(username, password);
-            router.push('/'); // Redirect to the home page or dashboard
+            router.push('/parkinglots'); // Redirect to the home page or dashboard
         } catch (err: unknown) {
             if (err instanceof Error) {
                 setError(err.message);

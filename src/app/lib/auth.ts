@@ -13,7 +13,10 @@ export async function register(
     });
 
     if (!response.ok) {
-        const error = await response.json().catch(() => ({ message: 'Unknown error' }));
+        if (response.status === 409) {
+            throw new Error('Username already exists. Please choose a different one.');
+        }
+        const error = await response.json().catch(() => ({ message: 'Registration failed. Please try again.' }));
         throw new Error(error.message || 'Failed to create account.');
     }
 }

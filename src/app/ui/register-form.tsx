@@ -37,79 +37,70 @@ export default function RegisterForm() {
     };
 
     return (
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                    <label htmlFor="username" className="block text-sm font-medium">
-                        Username
-                    </label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
-                        required
-                        minLength={3}
-                        maxLength={20}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password" className="block text-sm font-medium">
-                        Password
-                    </label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
-                        required
-                        minLength={8}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium">
-                        First Name
-                    </label>
-                    <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium">
-                        Last Name
-                    </label>
-                    <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="plateNumber" className="block text-sm font-medium">
-                        Plate Number
-                    </label>
-                    <input
-                        type="text"
-                        id="plateNumber"
-                        name="plateNumber"
-                        className="block w-full rounded-md border-gray-300 shadow-sm text-black px-2 py-1"
-                        required
-                    />
-                </div>
-                <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
-                >
-                    {isSubmitting ? 'Creating Account...' : 'Create Account'}
-                </button>
-                {errorMessage && <p className="text-red-600 mt-2">{errorMessage}</p>}
-                {successMessage && <p className="text-green-600 mt-2">{successMessage}</p>}
-            </form>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <div>
+                <label className="block text-gray-700 font-medium mb-1">Username</label>
+                <input
+                    type="text"
+                    name="username"
+                    required
+                    minLength={3}
+                    maxLength={20}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+            </div>
+
+            <div>
+                <label className="block text-gray-700 font-medium mb-1">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    required
+                    minLength={8}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+            </div>
+
+            <div>
+                <label className="block text-gray-700 font-medium mb-1">First Name</label>
+                <input
+                    type="text"
+                    name="firstName"
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+            </div>
+
+            <div>
+                <label className="block text-gray-700 font-medium mb-1">Last Name</label>
+                <input
+                    type="text"
+                    name="lastName"
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+            </div>
+
+            <div>
+                <label className="block text-gray-700 font-medium mb-1">Plate Number</label>
+                <input
+                    type="text"
+                    name="plateNumber"
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+            </div>
+
+            {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
+            {successMessage && <p className="text-green-600 text-sm">{successMessage}</p>}
+
+            <button
+                type="submit"
+                disabled={isSubmitting}
+                className="mt-2 w-full bg-blue-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-600 transition"
+            >
+                {isSubmitting ? 'Creating Account...' : 'Create Account'}
+            </button>
+        </form>
     );
 }

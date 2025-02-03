@@ -1,8 +1,8 @@
 'use client';
 
 import LoginForm from '@/app/ui/login-form';
-import RegisterForm from "@/app/ui/register-form";
-import {useState} from "react";
+import RegisterForm from '@/app/ui/register-form';
+import { useState } from 'react';
 
 export default function LoginPage() {
     const [isRegistering, setIsRegistering] = useState(false);
@@ -12,21 +12,25 @@ export default function LoginPage() {
     };
 
     return (
-        <main className="flex items-center justify-center md:h-screen">
-            <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
-                <div className="flex h-20 w-full items-end rounded-lg bg-blue-500 p-3 md:h-36">
-                    <div className="w-32 text-white md:w-36">
-                        {isRegistering ? 'Create an Account' : 'Welcome Back'}
-                    </div>
-                </div>
+        <div className="min-h-screen flex flex-col items-center justify-center p-8 sm:p-20 bg-gray-50">
+            <header className="w-full max-w-4xl flex justify-between items-center mb-8">
+                <h1 className="text-4xl font-bold text-gray-900">{isRegistering ? 'Register' : 'Login'}</h1>
+            </header>
+
+            <main className="w-full max-w-md bg-white p-6 shadow-lg rounded-lg border border-gray-300">
+                <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                    {isRegistering ? 'Create an Account' : 'Welcome Back'}
+                </h2>
+
                 {isRegistering ? <RegisterForm /> : <LoginForm />}
+
                 <button
                     onClick={toggleForm}
                     className="mt-4 w-full rounded-md bg-gray-600 py-2 px-4 text-white hover:bg-gray-700"
                 >
                     {isRegistering ? 'Already have an account? Log in' : 'Need an account? Register'}
                 </button>
-            </div>
-        </main>
+            </main>
+        </div>
     );
 }

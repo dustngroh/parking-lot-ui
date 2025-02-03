@@ -31,30 +31,23 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center p-8 sm:p-20 bg-gray-50">
-            <header className="w-full max-w-4xl flex justify-between items-center mb-8">
-                <h1 className="text-4xl font-bold text-gray-900">Dashboard</h1>
-                <LogoutButton />
-            </header>
+        <main className="w-full max-w-4xl bg-white p-6 shadow-lg rounded-lg border border-gray-300">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Available Parking Lots</h2>
 
-            <main className="w-full max-w-4xl bg-white p-6 shadow-lg rounded-lg border border-gray-300">
-                <h2 className="text-2xl font-semibold mb-4 text-gray-800">Available Parking Lots</h2>
+            {role === "ADMIN" && (
+                <div className="mb-4">
+                    <button
+                        onClick={() => setShowForm(!showForm)}
+                        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                    >
+                        {showForm ? "Cancel" : "Add Parking Lot"}
+                    </button>
 
-                {role === "ADMIN" && (
-                    <div className="mb-4">
-                        <button
-                            onClick={() => setShowForm(!showForm)}
-                            className="mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-                        >
-                            {showForm ? "Cancel" : "Add Parking Lot"}
-                        </button>
+                    {showForm && <AddParkingLotForm onClose={() => setShowForm(false)} onSuccess={() => window.location.reload()} />}
+                </div>
+            )}
 
-                        {showForm && <AddParkingLotForm onClose={() => setShowForm(false)} onSuccess={() => window.location.reload()} />}
-                    </div>
-                )}
-
-                <ParkingLotsComponent />
-            </main>
-        </div>
+            <ParkingLotsComponent />
+        </main>
     );
 }

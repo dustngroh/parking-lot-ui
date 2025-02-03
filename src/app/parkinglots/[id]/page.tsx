@@ -71,11 +71,17 @@ export default function ParkingLotPage() {
         }
     };
 
-    if (loading) return <p className="text-center text-lg">Loading...</p>;
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-50">
+                <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        );
+    }
     if (error) return <p className="text-center text-red-500">{error}</p>;
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center p-8 sm:p-20 bg-gray-50">
+        //<div className="min-h-screen flex flex-col items-center justify-center p-8 sm:p-20 bg-gray-50">
             <main className="w-full max-w-4xl bg-white p-6 shadow-lg rounded-lg border border-gray-300">
                 {parkingLot ? (
                     <>
@@ -125,6 +131,6 @@ export default function ParkingLotPage() {
                     Back to Parking Lots
                 </button>
             </main>
-        </div>
+        //</div>
     );
 }
